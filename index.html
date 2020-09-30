@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="assets/img/logo.png" rel="icon" >
+    <link href="assets/img/logo.png" rel="apple-touch-icon">
+    <title>COVID-19 | Home</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/ionicons/css/ionicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
+  <meta name="author" content="Bhuvan S M">
+  <meta property="og:site_name" content="COVID-19">
+  <meta property="og:title" content="Get updates on Coronavirus Pandemic" name="description">
+  <meta property="og:description" content="Get updates on Coronavirus Pandemic"/>
+  <meta property="og:image" itemprop="image" content="https://sarscov19.ml/assets/img/co1.png">
+  <meta property="og:site" content="website"/>
+<script>
+  var staticUrl = 'https://api.covid19india.org/data.json';
+  $.getJSON(staticUrl, function(data) {
+    var n = data.statewise[0].lastupdatedtime
+    document.getElementById("p1").innerHTML = n
+            document.getElementById("p2").innerHTML = n
+            document.getElementById("p3").innerHTML = n
+            document.getElementById("p4").innerHTML = n
+
+           
+  })
+
+  $(document).ready(function() {
+  $('[data-toggle="tooltip"]').tooltip();
+});
+
+function darkFunction(){
+  var ele = document.body
+  ele.classList.toggle("dark-mode")
+
+}
+</script>
+<script>
+  var staticUrl = 'https://api.covid19india.org/data.json';
+  $.getJSON(staticUrl, function(data) {
+    var n = data.statewise[0].deltaconfirmed
+            var o = data.statewise[0].deltadeaths
+            var p = data.statewise[0].deltarecovered
+            document.getElementById("small1").innerHTML = ' <i style="font-size:17px;" class="fas fa-arrow-alt-circle-up "></i>&nbsp;'+ n;
+            document.getElementById("small2").innerHTML = ' <i style="font-size:17px;" class="fas fa-arrow-alt-circle-up "></i>&nbsp;'+ o;
+            document.getElementById("small3").innerHTML = ' <i style="font-size:17px;" class="fas fa-arrow-alt-circle-up "></i>&nbsp;'+ p;
+   var out="";
+            var active = "";
+           var tables = ' <thead class="thead-dark"><tr> <th scope="col">State/UT</th><th scope="col">Confirmed</th> <th scope="col">Deaths</th> <th scope="col">Recovered</th><th scope="col">Active</th> </tr></thead>';
+            for(var i=1;i<data.statewise.length;i++) {
+               
+              out +='<tr><th scope="row">'+data.statewise[i].state+'</th><td><i class="fas fa-arrow-alt-circle-up">'+ data.statewise[i].deltaconfirmed +'&nbsp;&nbsp;' + data.statewise[i].confirmed + '</td><td><i class="fas fa-arrow-alt-circle-up">'+ data.statewise[i].deltadeaths +'&nbsp;&nbsp;'+data.statewise[i].deaths+'</td><td><i class="fas fa-arrow-alt-circle-up">'+ data.statewise[i].deltarecovered +'&nbsp;&nbsp;'+data.statewise[i].recovered+'</td><td>' + data.statewise[i].active + '</td> </tr>' ;
+               
+            }
+           
+            document.getElementById("tbst").innerHTML = tables + out;
+  })
+</script>
+
+  <style>
+    .wrapper {
+  text-align: center;
+}
+.wrapper .btn {
+  position: relative;
+  border-radius: 50%;
+  margin:2px;
+  background-color: rgba(9,83,121,100);
+  color: white;
+ 
+}
+
+
+  </style>
+
+</head>
+<body>
+
+    <header id="header" class="fixed-top">
+        <div class="container">
+    
+          <div class="logo float-left">
+            <h1 class="text-light"><a href="#header"><img src="assets/img/co1.png" width="50" height="50" style="border-radius: 50%;"/> <span>corona</span></a></h1>
+          </div>
+    
+          <nav class="main-nav float-right d-none d-lg-block">
+            <ul >
+              <li class="active"><a href="#intro">Home</a></li>
+              <li><a href="#menu-items">Preventive measures</a></li>
+              <li><a href="#menu-items">Symptoms</a></li>
+              <li><a href="#menu-items">Myths vs Reality</a></li>
+              
+              
+            </ul>
+          </nav>
+    
+        </div>
+      </header>
+
+      <section id="intro" class="clearfix">
+        <div class="container">
+    
+          <div class="intro-img">
+            <img src="assets/img/co2.png" style="border-radius: 50%;" alt="" class="img-fluid">
+          </div>
+    
+          <div class="intro-info">
+            <h2>Coronavirus<br>Pandemic</h2>
+            <div>
+              <p>Stay Home, Stay Safe and Stay Productive too</p>
+            </div>
+          </div>
+    
+        </div>
+      </section>
+      <br>
+
+   
+
+      
+      <header class="section-header">
+        <h3>COVID-19 CASES</h3>
+        <p>India</p>
+      </header><br>
+      <div class="wrapper">
+        <p style="text-align: center;"><strong>Click below button&nbsp;<i class="fa fa-hand-o-down"></i> to get the Global cases of COVID-19</strong></p>
+      <a href="global.html" target="_self" class="btn ">Get Global Cases</a>
+    </div>
+     <br>
+     
+          <section id="why-us" class="wow fadeIn">
+              <div class="container">
+                
+                  <div class="row row-eq-height justify-content-center">
+
+                    <div class="col-lg-3 mb-3">
+                      <div class="card card1 wow bounceInUp">
+                       
+                        <div class="card-body">
+                         
+                          <small id="small1" > </small>
+                          <h1 class="card-text" id="demo1"></h1>
+                          <h6 class="card-title"><strong>Confirmed Cases</strong></h6>
+                          <p>Last updated on:<br><span id="p1"></span> </p>
+                        </div>
+                      </div>
+                    </div>
+          
+                    <div class="col-lg-3 mb-3">
+                      <div class="card card2 wow bounceInUp">
+                        
+                        <div class="card-body">
+                          <small id="small2" > </small>
+                          <h1 class="card-text" id="demo2"></h1>
+                          <h6 class="card-title"><strong>Total Deaths</strong></h6>
+                          <p>Last updated on:<br><span id="p2"></span> </p>
+                        </div>
+                      </div>
+                    </div>
+          
+                    <div class="col-lg-3 mb-3">
+                      <div class="card card3 wow bounceInUp">
+                        
+                        <div class="card-body">
+                          <small id="small3" > </small>
+                          <h1 class="card-text" id="demo3"></h1>
+                          <h6 class="card-title"><strong>Total Recovered</strong></h6>
+                          <p>Last updated on:<br><span id="p3"></span> </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-3 mb-3">
+                        <div class="card card4 wow bounceInUp">
+                         
+                          <div class="card-body">
+                            
+                            <h1 class="card-text" id="demo4"></h1>
+                            <a href="#" data-toggle="tooltip" data-placement="right" title="Active cases refer to the total number of cases minus the number of cases that have recovered or died"><h6 class="card-title" style="color: white;"><strong>Active Cases</strong></h6> </a>
+                             <p>Last updated on:<br><span id="p4"></span> </p>
+                          </div>
+                        </div>
+                      </div>
+            
+          
+                  </div><br>
+                  <div class="wrapper">
+                    <p style="text-align: center;"><strong>View Map data&nbsp;<i class="fa fa-hand-o-down"></i> </strong></p>
+                  
+                </div>
+                <div class="map-data wow bounceInUp">
+                  <iframe src="https://ourworldindata.org/grapher/total-cases-covid-19?tab=map" width="100%" height="600px"></iframe>
+                </div>
+              </div>
+          </section>
+        
+         
+          
+          <br>
+          <div class="row about-container justify-content-center">
+            <div class="col-lg-6 mb-5 ">
+              <div class="container">
+                <header class="section-header">
+                  <h3>COVID-19 CASES</h3>
+                  <p>India's Status by State/UT</p>
+                </header>
+                <br>
+            <table class="table table-responsive wow bounceInUp" id="tbst" >
+              <thead class="thead-dark" >
+                <tr>
+                  <th scope="col">State/UT</th>
+                  <th scope="col">Confirmed</th>
+                  <th scope="col">Deaths</th>
+                  <th scope="col">Recovered</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+               
+              
+            </table>
+         </div>
+          </div>
+
+          <div class="col-lg-4 mb-4">
+            <div class="container">
+              <header class="section-header">
+                <h3>COVID-19 CASES</h3>
+                <p>Karnataka's Status by Districts</p>
+              </header>
+              <br>
+          <table class="table table-responsive wow bounceInUp" id="tbdt" >
+            <thead class="thead-dark" >
+              <tr>
+                <th scope="col">State/UT</th>
+                <th scope="col">Confirmed</th>
+                <th scope="col">Deaths</th>
+                <th scope="col">Recovered</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+             
+            
+          </table>
+       </div>
+          </div>
+          </div><br>
+
+          <header class="section-header">
+            <h3>Quick Tips</h3>
+            
+          </header><br>
+
+          <div class="row row-eq-height justify-content-center">
+           <div class="col-lg-4 mb-4">
+           
+            <div class="container">
+            <div class="card card5 cardh wow bounceInUp">
+            <a href="https://timesofindia.indiatimes.com/india/govt-fresh-guidelines-for-lockdown-2-0-whats-shut-whats-open-from-april-20/articleshow/75152832.cms#_ga=2.79628951.2040746894.1588514039-1675656034.1588514029" target="_blank">  <p><strong>#1</strong></p>
+              <div class="card-body">
+                <h5 class="card-title">Lockdown: What's open?</h5>
+                <p class="card-text">know more&nbsp;<i class="fa fa-share"></i></p>
+              </div>
+            </a>
+            </div><br>
+            </div>
+           </div>
+            <div class="col-lg-4 mb-4">
+            <div class="card card6 cardh wow bounceInUp">
+             <a href="https://timesofindia.indiatimes.com/india/coronavirus-government-issues-home-quarantine-guidelines/articleshow/74582356.cms#_ga=2.42421414.2040746894.1588514039-1675656034.1588514029" target="_blank"> <p><strong>#2</strong></p>
+              <div class="card-body">
+                <h5 class="card-title">How to self Quarantine?</h5>
+                <p class="card-text">Know more&nbsp;<i class="fa fa-share"></i> </p>
+              </div>
+              </a>
+            </div>
+            </div>
+            <br>
+            <div class="col-lg-4 mb-4">
+            <div class="card card7 cardh wow bounceInUp">
+              <a href="https://timesofindia.indiatimes.com/india/coronavirus-dos-and-donts/articleshow/74467949.cms#_ga=2.42421414.2040746894.1588514039-1675656034.1588514029" target="_blank"> <p><strong>#3</strong></p>
+               <div class="card-body">
+                 <h5 class="card-title">Do and Dont's for COVID-19</h5>
+                 <p class="card-text">Know more&nbsp;<i class="fa fa-share"></i></p>
+               </div>
+               </a>
+             </div>
+            </div></div><br>
+            <div class="row row-eq-height justify-content-center">
+             
+              <div class="col-lg-4 mb-4">
+                
+                  <div class="card card8 cardh wow bounceInUp">
+                    <a href="https://timesofindia.indiatimes.com/india/covid-19-or-common-flu-how-do-i-find-out/articleshow/74503762.cms#_ga=2.138290867.2040746894.1588514039-1675656034.1588514029" target="_blank"> <p><strong>#4</strong></p>
+                     <div class="card-body">
+                       <h5 class="card-title">COVID-19 or Flu? How to find out?</h5>
+                       <p class="card-text">Know more&nbsp;<i class="fa fa-share"></i></p>
+                     </div>
+                     </a>
+                   </div><br>
+                
+              </div>
+            
+            <div class="col-lg-4 mb-4">
+             <div class="card card9 cardh wow bounceInUp">
+              <a href="https://www.accuweather.com/en/health-wellness/guide-to-wearing-masks-during-covid-19-pandemic/722613" target="_blank"> <p><strong>#5</strong></p>
+               <div class="card-body">
+                 <h5 class="card-title">When and where to wear masks?</h5>
+                 <p class="card-text">Know more&nbsp;<i class="fa fa-share"></i></p>
+               </div>
+               </a>
+             </div></div><br>
+             <div class="col-lg-4 mb-4">
+             <div class="card card10 cardh wow bounceInUp">
+              <a href="https://www.accuweather.com/en/health-wellness/how-does-the-new-coronavirus-spread-think-of-second-hand-smoke/706489" target="_blank"> <p><strong>#6</strong></p>
+               <div class="card-body">
+                 <h5 class="card-title">How does Coronavirus spread?</h5>
+                 <p class="card-text">Know more&nbsp;<i class="fa fa-share"></i></p>
+               </div>
+               </a>
+             </div></div></div><br>
+            
+             
+         
+          
+          </div><hr>
+          <br>
+          <div class="container" id="menu-items">
+
+        <div class="row row-eq-height justify-content-center">
+
+          <div class="col-lg-4 mb-4">
+            <div class="cardd wow bounceInUp">
+              <a href="prevention.html" style="color: blanchedalmond;">
+              <div class="card-body">
+                <h5 class="card-title"><strong>Preventive Measures</strong></h5>
+                <p class="card-text">Precautions we suggest: Wash hands frequently, avoid crowded places...</p>
+                <p><strong>Know more</strong>&nbsp;<i class="fa fa-share"></i>  </p>
+              </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 mb-4">
+            <div class="cardd wow bounceInUp">
+              <a href="symptoms.html" style="color: blanchedalmond;">
+              <div class="card-body">
+                <h5 class="card-title"><strong>Coronavirus Symptoms</strong></h5>
+                <p class="card-text">If you have a fever, cough and difficulty breathing...</p>
+                <p><strong>Know more</strong>&nbsp;<i class="fa fa-share"></i>  </p>
+              </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 mb-4">
+            <div class="cardd wow bounceInUp">
+              <a href="mvr.html" style="color: blanchedalmond;">
+              <div class="card-body">
+                <h5 class="card-title" ><strong>Myths vs Reality</strong></h5>
+                <p class="card-text">Be aware! The most pervasive myths on Coronavirus and why they are wrong.</p>
+                <p><strong>Know more</strong>&nbsp;<i class="fa fa-share"></i>  </p>
+              </div>
+              </a>
+            </div>
+          </div><hr>
+          
+          
+          
+
+        </div>
+      </div>
+     
+      <header class="section-header">
+        <div class="container">
+        <h3>Q&A on Coronavirus pandemic</h3>
+        <P>With inputs from:<strong>WHO</strong></P></div>
+      </header><br><br><br>
+      <ul >
+     <li>  <strong> How is one tested for Covid-19?</strong>&nbsp;&nbsp;<button onclick="myFunction()" class="btn btn-primary" id="myBtn" >Read more</button>
+      <p>The test for coronavirus does not involve any blood examination. Coronavirus test includes<span id="dots">...</span><span id="more"> examining of the throat swab or the nasal swab to check for infection. After taking samples, doctors posted at nodal hospitals may assess your physical health to decide whether hospitalisation is needed. Otherwise, you may be asked to stay isolated at home itself. If the tests are positive, you may require to remain quarantined for at least 14 days, till recovery.</span></p></li>
+      <hr>
+      <li>  <strong>What should you do if you want to get tested for Covid-19 in India?</strong>&nbsp;&nbsp;<button onclick="myFunction2()" id="myBtn2" class="btn btn-primary">Read more</i></button>
+        <p>Call Union health ministry's 24X7 helpline number: 01123978046. You can also mail your queries<span id="dots2">...</span><span id="more2"> at ncov2019@gmail.com. The district surveillance officer will visit you shortly and, if chances of infection are high, you may be transported to a designated hospital for the test. Govt has placed separate ambulances for transporting suspected cases. Use of public transport isn't advised.</span></p></li>
+        <hr>
+        <li>  <strong> If you get infected with COVID-19 and recover, can you get infected again?</strong>&nbsp;&nbsp;<button onclick="myFunction3()" id="myBtn3" class="btn btn-primary">Read more</i></button>
+          <p>It's not known. A few reports from China say some people had COVID-19, recovered and<span id="dots3">...</span><span id="more3"> then fell ill again. It's unclear if that's a relapse, a new infection, or a case where the person never fully recovered in the first place. Scientists at the Fred Hutchinson Cancer Research Center in Seattle say the 30,000-letter genetic code of the virus changes by one letter every 15 days. It's not known how many of these changes would be needed for the virus to seem different enough to the immune system of someone who had a previous version of it for it to cause a fresh infection.</span></p></li>
+          <hr>
+          <li>  <strong> Can higher immunity prevent you from getting coronavirus?</strong>&nbsp;&nbsp;<button onclick="myFunction4()" id="myBtn4" class="btn btn-primary">Read more</i></button>
+            <p>Experts say the effects appear to depend on how robust or weakened a person's immune system is. The WHO and the Centre for Disease Control (CDC) have said<span id="dots4">...</span><span id="more4"> that the two major groups of people who are more likely to be affected by the disease are the elderly and those with underlying medical conditions. People who have aged and have weak immune systems have a harder time fighting off the COVID-19 infection. People who already have an underlying health condition like heart disease, diabetes or lung disease are more prone to the infection causing severe symptoms. People with these underlying problems have a taxed immune system and cannot fight off the infection. However, you need to take the necessary precautions even if you are young and healthy.</span></p></li>
+            <hr>
+            <li>  <strong> Should I wear a mask?</strong>&nbsp;&nbsp;<button onclick="myFunction5()" id="myBtn5" class="btn btn-primary">Read more</i></button>
+              <p>According to WHO, only wear a mask if you have been diagnosed with COVID-19 or<span id="dots5">...</span><span id="more5"> looking after a patient of COVID-19. A disposable face mask can only be used once. If you are not ill or looking after someone who is ill then you are wasting a mask. Wear a mask if you are coughing or sneezing. Masks are effective only when used in combination with frequent hand-cleaning with alcohol-based hand rub or soap and water. If you wear a mask, then you must know how to use it and dispose of it properly.</span></p></li>
+              <hr>
+              <li>  <strong> Is there anything I should not do?</strong>&nbsp;&nbsp;<button onclick="myFunction6()" id="myBtn6" class="btn btn-primary">Read more</i></button>
+                <p>These measures are not effective against COVID-2019 and can be<span id="dots6">...</span><span id="more6"> harmful: Smoking, Wearing multiple masks, Taking antibiotics. In any case, if you have fever, cough and difficulty breathing seek medical care early to reduce the risk of developing a more severe infection and be sure to share your recent travel history with your health care provider.</span></p></li>
+                <hr>
+                <li>  <strong> How long can coronavirus last on different surfaces?</strong>&nbsp;&nbsp;<button onclick="myFunction7()" id="myBtn7" class="btn btn-primary">Read more</i></button>
+                  <p>Viruses remain infectious on cardboard for 24 hours, and<span id="dots7">...</span><span id="more7"> 3 days on plastic and stainless steel. So don't fail to wash up after touching these surfaces.</span></p></li>
+                  <hr>
+      </ul>
+      
+      <footer id="footer">
+      <div class="credits" >
+        Developed by <a href="https://www.instagram.com/bhuviism/"><strong>Bhuvan S M</strong></a><br>
+        
+      </div>
+      </footer><br>
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-165615813-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-165615813-1');
+</script>
+
+    
+    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+    <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.5/lib/darkmode-js.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="script.js" defer ></script>
+    <script src="assets/vendor/jquery/jquery.min.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <script src="assets/vendor/counterup/counterup.min.js"></script>
+    <script src="assets/vendor/mobile-nav/mobile-nav.js"></script>
+    <script src="assets/vendor/wow/wow.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+    <script src="assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+    <script src="assets/vendor/venobox/venobox.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.min.js"></script>
+</body>
+</html>
+
+
+
+
